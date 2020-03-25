@@ -15,35 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        outputLifeCycle(fromState: "non-running", toState: "inactive")
-        
         return true
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        outputLifeCycle(fromState: "inactive", toState: "active")
         
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        outputLifeCycle(fromState: "inactive", toState: "active")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        outputLifeCycle(fromState: "active", toState: "inactive")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        outputLifeCycle(fromState: "active", toState: "background")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        outputLifeCycle(fromState: "background", toState: "foreground")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        outputLifeCycle(fromState: "active", toState: "non-running")
     }
     
     // MARK: UISceneSession Lifecycle
@@ -107,6 +98,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-func outputLifeCycle(nameMethod: String = #function, fromState: String, toState: String) {
-    print("Application moved from \(fromState) to \(toState): \(nameMethod)")
-}
